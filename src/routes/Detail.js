@@ -1,4 +1,5 @@
 import React from "react";
+import "./Detail.css";
 
 class Detail extends React.Component{
     componentDidMount(){
@@ -10,7 +11,28 @@ class Detail extends React.Component{
     render(){
         const {location} = this.props;
         if (location.state) {
-            return <span>{location.state.title}</span>;
+            return (
+                <div className="detail_wrapper">
+                    <div className="detail">
+                        <div className="detail_top">
+                            <h3 className="movie__title">{location.state.title}</h3>
+                            <h5 className="movie__year">{location.state.year}</h5>
+                        </div>                
+                        <img src={location.state.poster} alt={location.state.title} title={location.state.title} />
+                        <article className="detail_article">
+                            <ul className="movie__genres">
+                                {location.state.genres.map((genre, index) => (
+                                <li key={index} className="genres__genre">
+                                    {genre}
+                                </li>
+                                ))}
+                            </ul>
+                            <p className="movie__summary">{location.state.summary}</p>
+                        </article>
+                    </div>
+                    <iframe title={location.state.id} width="560" height="315" src="https://www.youtube.com/embed/CDCryFB-7EA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            );
         } else {
             return null;
         }

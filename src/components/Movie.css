@@ -47,6 +47,7 @@
     margin-bottom: 5px;
     font-size: 24px;
     color: #2c2c2c;
+    font-weight: 500;
   }
   
   .movie .movie__genres {
@@ -61,4 +62,8 @@
   .movie .movie__year {
     margin-right: 10px;
     font-size: 14px;
+  }
+
+  .movie .movie__summary {
+    color: black;
   }
